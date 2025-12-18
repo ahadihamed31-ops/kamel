@@ -21,7 +21,7 @@ app.get('/rates', async (req, res) => {
     res.json(rates);
 
   } catch (err) {
-    res.status(500).json({ error: 'Error getting rates' });
+    res.status(500).json({ error: 'Error getting rates', details: err.message, stack: err.stack });
   }
 });
 
