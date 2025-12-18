@@ -18,7 +18,7 @@ app.get('/rates', async (req, res) => {
       const sell = $(cols[2]).text().trim();
       if (currency) rates.push({ currency, buy, sell });
     });
-    res.json(rates);
+    res.json({ rates, preview: data.substring(0, 200) });
 
   } catch (err) {
     res.status(500).json({ error: 'Error getting rates', details: err.message, stack: err.stack });
